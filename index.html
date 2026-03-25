@@ -1,71 +1,339 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Md Mohiuddin</title>
-    <style>
-        body {
-            font-family: Georgia, serif;
-            max-width: 800px;
-            margin: 40px auto;
-            line-height: 1.6;
-            padding: 0 20px;
-        }
-        h1 {
-            margin-bottom: 5px;
-        }
-        nav a {
-            margin-right: 15px;
-            text-decoration: none;
-            color: #003366;
-        }
-        nav {
-            margin-bottom: 20px;
-        }
-        .section {
-            margin-top: 30px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Md Mohiuddin</title>
+  <style>
+    :root {
+      --bg: #f5f7fa;
+      --text: #1b1f23;
+      --muted: #5b6570;
+      --nav: #1f4d7a;
+      --card: #ffffff;
+      --line: #d7dee7;
+      --accent: #2c6aa0;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    .topbar {
+      background: #243746;
+      color: #fff;
+      padding: 16px 0;
+      border-bottom: 4px solid #182631;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      letter-spacing: 0.2px;
+      color: #fff;
+    }
+
+    .brand p {
+      margin: 4px 0 0;
+      color: #d7e4ef;
+      font-size: 1rem;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #fff;
+      font-size: 0.98rem;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+
+    .hero {
+      padding: 44px 0 28px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(19, 34, 47, 0.06);
+    }
+
+    .intro {
+      padding: 30px;
+    }
+
+    .intro h2 {
+      margin: 0 0 16px;
+      font-size: 2rem;
+      line-height: 1.15;
+    }
+
+    .intro p {
+      margin: 0 0 14px;
+      color: #2a2f35;
+      font-size: 1.04rem;
+      line-height: 1.72;
+    }
+
+    .sidebar {
+      padding: 22px;
+      text-align: center;
+    }
+
+    .sidebar img {
+      width: 220px;
+      max-width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      margin-bottom: 16px;
+      object-fit: cover;
+    }
+
+    .sidebar h3 {
+      margin: 8px 0 4px;
+      font-size: 1.45rem;
+    }
+
+    .sidebar p {
+      margin: 4px 0;
+      color: var(--muted);
+    }
+
+    .quick-links {
+      margin-top: 16px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .quick-links a {
+      display: block;
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #f9fbfd;
+      font-weight: 600;
+    }
+
+    .sections {
+      padding: 0 0 48px;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .panel {
+      padding: 24px 26px;
+    }
+
+    .panel h3 {
+      margin-top: 0;
+      margin-bottom: 14px;
+      font-size: 1.3rem;
+      color: var(--nav);
+      border-bottom: 2px solid #e8eef5;
+      padding-bottom: 8px;
+    }
+
+    .panel ul {
+      margin: 0;
+      padding-left: 20px;
+      line-height: 1.8;
+    }
+
+    .panel li { margin-bottom: 6px; }
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    footer {
+      background: #243746;
+      color: #e1ebf2;
+      padding: 22px 0;
+      font-size: 0.95rem;
+    }
+
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .section-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
+  <header class="topbar">
+    <div class="container brand">
+      <div>
+        <h1>Md Mohiuddin</h1>
+        <p>Ph.D. Candidate in Economics | Texas Tech University</p>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#home">Homepage</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#teaching">Teaching</a></li>
+          <li><a href="#cv">C.V.</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-<h1>Md Mohiuddin</h1>
-<p>PhD Candidate, Economics — Texas Tech University</p>
+  <main id="home">
+    <section class="hero">
+      <div class="container hero-grid">
+        <article class="card intro">
+          <h2>Welcome</h2>
+          <p>
+            I am a Ph.D. Candidate in Economics at Texas Tech University. My research lies at the intersection of
+            macroeconomics, energy economics, climate risk, and applied policy analysis.
+          </p>
+          <p>
+            My current work studies how households and local economies adjust to major shocks, with projects on oil-price shocks,
+            wildfire risk and insurance withdrawal, and AI-driven trade exposure and labor-market adjustment.
+          </p>
+          <p>
+            I will be on the academic job market in the 2026–2027 academic year. You can view my <a href="cv.pdf" target="_blank">CV</a>,
+            read about my research below, or contact me at <a href="mailto:mdmohiud@ttu.edu">mdmohiud@ttu.edu</a>.
+          </p>
+        </article>
 
-<nav>
-    <a href="#research">Research</a>
-    <a href="#cv">CV</a>
-    <a href="#teaching">Teaching</a>
-    <a href="#contact">Contact</a>
-</nav>
+        <aside class="card sidebar">
+          <img src="profile.jpg" alt="Md Mohiuddin profile photo" />
+          <h3>Md Mohiuddin</h3>
+          <p>Ph.D. Candidate in Economics</p>
+          <p>Texas Tech University</p>
+          <div class="quick-links">
+            <a href="cv.pdf" target="_blank">Curriculum Vitae</a>
+            <a href="#research">Research</a>
+            <a href="#teaching">Teaching</a>
+            <a href="mailto:mdmohiud@ttu.edu">Email</a>
+            <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+          </div>
+        </aside>
+      </div>
+    </section>
 
-<div class="section" id="research">
-    <h2>Research</h2>
-    <p><strong>Job Market Paper:</strong><br>
-    Oil Shocks, Consumption Smoothing, and Welfare Losses</p>
+    <section class="sections">
+      <div class="container section-grid">
+        <section class="card panel" id="research">
+          <h3>Research Fields</h3>
+          <ul>
+            <li><strong>Primary:</strong> Macroeconomics, Energy Economics</li>
+            <li><strong>Secondary:</strong> Climate Risk, Applied Econometrics</li>
+          </ul>
+        </section>
 
-    <p><strong>Research Fields:</strong><br>
-    Macroeconomics, Energy Economics, Climate Risk</p>
+        <section class="card panel">
+          <h3>Education</h3>
+          <ul>
+            <li>Ph.D. in Economics, Texas Tech University, expected 2027</li>
+            <li>M.S. in Analytical Economics, University of New Hampshire</li>
+          </ul>
+        </section>
 
-    <p><strong>Other Work:</strong><br>
-    Wildfire Risk and Insurance Markets<br>
-    AI-Induced Trade and Labor Adjustment</p>
-</div>
+        <section class="card panel full">
+          <h3>Job Market Paper</h3>
+          <ul>
+            <li><strong>Oil Shocks, Consumption Smoothing, and Welfare Losses: A State-Dependent Test of the LCPIH</strong></li>
+          </ul>
+        </section>
 
-<div class="section" id="cv">
-    <h2>Curriculum Vitae</h2>
-    <p><a href="cv.pdf" target="_blank">Download CV (PDF)</a></p>
-</div>
+        <section class="card panel">
+          <h3>Working Papers</h3>
+          <ul>
+            <li>Wildfire Shocks and Local Employment Dynamics: Evidence from U.S. Counties</li>
+            <li>AI-Induced Trade Exposure and Strategic Vulnerability in the United States</li>
+          </ul>
+        </section>
 
-<div class="section" id="teaching">
-    <h2>Teaching</h2>
-    <p>Principles of Macroeconomics (Instructor)</p>
-    <p>Intermediate Microeconomics (Teaching Assistant)</p>
-</div>
+        <section class="card panel">
+          <h3>Works in Progress</h3>
+          <ul>
+            <li>Designing Climate Insurance for High-Risk U.S. Tinderbox States</li>
+            <li>Preparing Students for an AI Economy: How States Are Shaping the Future Workforce</li>
+          </ul>
+        </section>
 
-<div class="section" id="contact">
-    <h2>Contact</h2>
-    <p>Email: mdmohiud@ttu.edu</p>
-</div>
+        <section class="card panel" id="teaching">
+          <h3>Teaching</h3>
+          <ul>
+            <li>Instructor, Principles of Macroeconomics</li>
+            <li>Teaching Assistant, Intermediate Microeconomics</li>
+            <li>Departmental Tutor, Economics</li>
+          </ul>
+        </section>
 
+        <section class="card panel" id="cv">
+          <h3>C.V.</h3>
+          <p><a href="cv.pdf" target="_blank">Download CV (PDF)</a></p>
+        </section>
+
+        <section class="card panel full" id="contact">
+          <h3>Contact</h3>
+          <p>Email: <a href="mailto:mdmohiud@ttu.edu">mdmohiud@ttu.edu</a></p>
+          <p>Department of Economics, Texas Tech University, Lubbock, Texas</p>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>© Md Mohiuddin</div>
+      <div>Website design inspired by a minimalist academic homepage layout.</div>
+    </div>
+  </footer>
 </body>
 </html>
